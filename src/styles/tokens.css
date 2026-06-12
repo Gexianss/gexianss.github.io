@@ -1,0 +1,74 @@
+/* 日系個人網站 Design Tokens — 單一事實來源 */
+/* 淺色模式（預設） */
+:root {
+  /* 色彩 — 基底 */
+  --color-bg: #F7F4EF;            /* 米白底 */
+  --color-surface: #FFFFFF;       /* 卡片面 */
+  --color-ink: #2B2A26;           /* 墨色文字 */
+  --color-ink-muted: rgba(43, 42, 38, 0.62);
+  --color-ink-faint: rgba(43, 42, 38, 0.45);
+  --color-line: rgba(43, 42, 38, 0.15);
+
+  /* 色彩 — 強調（靛藍） */
+  --color-accent: #2D4D8E;
+  --color-accent-soft: rgba(45, 77, 142, 0.14);
+  --color-on-accent: #FFFFFF;
+
+  /* 字型 */
+  --font-serif: 'Noto Serif TC', serif;   /* 標題、姓名、區塊名 */
+  --font-sans: 'Noto Sans TC', sans-serif; /* 內文、UI */
+
+  /* 字級階梯 */
+  --text-hero: 46px;
+  --text-h2: 26px;
+  --text-h3: 17px;
+  --text-body: 14px;
+  --text-small: 12px;
+  --text-label: 10px;
+
+  /* 字距（日系排印的關鍵） */
+  --tracking-wide: 0.25em;
+  --tracking-label: 0.3em;
+  --tracking-body: 0.04em;
+
+  /* 間距 */
+  --space-section: 120px;
+  --space-block: 48px;
+  --space-element: 16px;
+
+  /* 動畫 */
+  --motion-reveal: 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+  --motion-hover: 0.25s ease;
+  --motion-drift: 16s ease-in-out;
+
+  /* 圓角與陰影 */
+  --radius: 6px;
+  --shadow-card: 0 1px 3px rgba(43, 42, 38, 0.08);
+  --shadow-card-hover: 0 8px 20px rgba(43, 42, 38, 0.13);
+}
+
+/* 深色模式 */
+[data-theme='dark'] {
+  --color-bg: #1C1B19;            /* 墨黑帶暖 */
+  --color-surface: #26241F;
+  --color-ink: #EDEAE3;           /* 暖白文字 */
+  --color-ink-muted: rgba(237, 234, 227, 0.62);
+  --color-ink-faint: rgba(237, 234, 227, 0.45);
+  --color-line: rgba(237, 234, 227, 0.15);
+
+  --color-accent: #7E9CD8;
+  --color-accent-soft: rgba(126, 156, 216, 0.13);
+  --color-on-accent: #1C1B19;
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* 動畫尊重使用者偏好 */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-reveal: 0s;
+    --motion-hover: 0s;
+    --motion-drift: 0s;
+  }
+}
