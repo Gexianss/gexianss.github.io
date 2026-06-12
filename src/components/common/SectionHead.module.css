@@ -1,0 +1,4 @@
+.head { margin-bottom: 36px; }
+.zh { font-family: var(--font-serif); font-weight: 600; font-size: 30px; letter-spacing: 0.2em; }
+.en { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--color-ink-faint); margin-top: 6px; }
+.line { width: 48px; height: 1px; background: var(--color-accent); margin-top: 14px; }
