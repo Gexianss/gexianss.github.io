@@ -1,0 +1,40 @@
+<!-- @dsCard group="Colors" -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>色票 — 淺色／深色模式</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&display=swap');
+body { margin: 0; font-family: 'Noto Sans TC', sans-serif; display: flex; }
+.mode { flex: 1; padding: 24px; }
+.mode.light { background: #F7F4EF; color: #2B2A26; }
+.mode.dark  { background: #1C1B19; color: #EDEAE3; }
+.mode h2 { font-size: 12px; letter-spacing: 0.3em; font-weight: 500; opacity: 0.6; margin: 0 0 16px; }
+.sw { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.chip { width: 44px; height: 32px; border-radius: 5px; border: 1px solid rgba(127,127,127,0.25); flex: none; }
+.sw .n { font-size: 12px; }
+.sw .v { font-size: 11px; opacity: 0.55; font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="mode light">
+  <h2>淺色模式</h2>
+  <div class="sw"><div class="chip" style="background:#F7F4EF"></div><div><div class="n">bg 米白底</div><div class="v">#F7F4EF</div></div></div>
+  <div class="sw"><div class="chip" style="background:#FFFFFF"></div><div><div class="n">surface 卡片面</div><div class="v">#FFFFFF</div></div></div>
+  <div class="sw"><div class="chip" style="background:#2B2A26"></div><div><div class="n">ink 墨色文字</div><div class="v">#2B2A26</div></div></div>
+  <div class="sw"><div class="chip" style="background:rgba(43,42,38,0.62)"></div><div><div class="n">ink-muted 次要文字</div><div class="v">ink @ 62%</div></div></div>
+  <div class="sw"><div class="chip" style="background:#2D4D8E"></div><div><div class="n">accent 靛藍</div><div class="v">#2D4D8E</div></div></div>
+  <div class="sw"><div class="chip" style="background:rgba(45,77,142,0.14)"></div><div><div class="n">accent-soft 背景圓形</div><div class="v">accent @ 14%</div></div></div>
+</div>
+<div class="mode dark">
+  <h2>深色模式</h2>
+  <div class="sw"><div class="chip" style="background:#1C1B19"></div><div><div class="n">bg 墨黑帶暖</div><div class="v">#1C1B19</div></div></div>
+  <div class="sw"><div class="chip" style="background:#26241F"></div><div><div class="n">surface 卡片面</div><div class="v">#26241F</div></div></div>
+  <div class="sw"><div class="chip" style="background:#EDEAE3"></div><div><div class="n">ink 暖白文字</div><div class="v">#EDEAE3</div></div></div>
+  <div class="sw"><div class="chip" style="background:rgba(237,234,227,0.62)"></div><div><div class="n">ink-muted 次要文字</div><div class="v">ink @ 62%</div></div></div>
+  <div class="sw"><div class="chip" style="background:#7E9CD8"></div><div><div class="n">accent 靛藍（亮）</div><div class="v">#7E9CD8</div></div></div>
+  <div class="sw"><div class="chip" style="background:rgba(126,156,216,0.13)"></div><div><div class="n">accent-soft 背景圓形</div><div class="v">accent @ 13%</div></div></div>
+</div>
+</body>
+</html>

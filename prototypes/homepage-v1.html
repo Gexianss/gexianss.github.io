@@ -1,0 +1,303 @@
+<!-- @dsCard group="Prototypes" -->
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>張溦珊 — 前端工程師｜橫向 Slider 原型 v1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #F7F4EF; --surface: #FFFFFF;
+  --ink: #2B2A26; --ink-muted: rgba(43,42,38,0.62); --ink-faint: rgba(43,42,38,0.45);
+  --line: rgba(43,42,38,0.15);
+  --accent: #2D4D8E; --accent-soft: rgba(45,77,142,0.14); --on-accent: #fff;
+  --serif: 'Noto Serif TC', serif; --sans: 'Noto Sans TC', sans-serif;
+}
+[data-theme='dark'] {
+  --bg: #1C1B19; --surface: #26241F;
+  --ink: #EDEAE3; --ink-muted: rgba(237,234,227,0.62); --ink-faint: rgba(237,234,227,0.45);
+  --line: rgba(237,234,227,0.15);
+  --accent: #7E9CD8; --accent-soft: rgba(126,156,216,0.13); --on-accent: #1C1B19;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans);
+       transition: background .4s ease, color .4s ease; }
+
+/* ── 固定四角 UI ── */
+.fixed-ui { position: fixed; z-index: 50; }
+.ui-logo { top: 24px; left: 28px; width: 34px; height: 34px; display: flex; align-items: center;
+  justify-content: center; font-family: var(--serif); font-weight: 600; font-size: 16px;
+  border-radius: 4px; background: var(--accent); color: var(--on-accent); }
+.ui-nav { top: 28px; right: 28px; display: flex; align-items: center; gap: 20px;
+  font-size: 12px; letter-spacing: 0.18em; }
+.ui-nav a { color: var(--ink); text-decoration: none; opacity: 0.7; transition: opacity .2s; }
+.ui-nav a:hover { opacity: 1; }
+.ui-nav .sep { width: 1px; height: 12px; background: var(--line); }
+.ui-nav button { background: none; border: 1px solid var(--line); color: var(--ink);
+  font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; border-radius: 99px;
+  padding: 5px 12px; cursor: pointer; transition: border-color .2s; }
+.ui-nav button:hover { border-color: var(--accent); }
+.ui-gh { bottom: 26px; left: 28px; font-size: 11px; letter-spacing: 0.2em; }
+.ui-gh a { color: var(--ink-faint); text-decoration: none; }
+.ui-gh a:hover { color: var(--accent); }
+.ui-hint { bottom: 26px; right: 28px; font-size: 11px; letter-spacing: 0.3em;
+  color: var(--ink-faint); animation: hint 2.4s ease-in-out infinite; }
+@keyframes hint { 0%,100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
+
+/* 進度線 */
+.progress { position: fixed; bottom: 0; left: 0; height: 2px; width: 100%; z-index: 60;
+  background: var(--line); }
+.progress .bar { height: 100%; width: 0; background: var(--accent); transition: width .15s linear; }
+
+/* ── 橫向軌道 ── */
+.track { display: flex; height: 100vh; will-change: transform; }
+.panel { flex: none; height: 100vh; position: relative; padding: 0 6vw; display: flex;
+  flex-direction: column; justify-content: center; }
+
+/* 進場 reveal */
+.rv { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.25,.1,.25,1),
+  transform .7s cubic-bezier(.25,.1,.25,1); }
+.panel.active .rv { opacity: 1; transform: none; }
+.panel.active .rv:nth-child(2) { transition-delay: .12s; }
+.panel.active .rv:nth-child(3) { transition-delay: .24s; }
+.panel.active .rv:nth-child(4) { transition-delay: .36s; }
+
+/* Panel 1 — Hero */
+.p-hero { width: 130vw; }
+.greet { font-size: 13px; letter-spacing: 0.45em; color: var(--ink-muted); margin-bottom: 20px; }
+.hero-name { font-family: var(--serif); font-weight: 600; white-space: nowrap;
+  font-size: clamp(72px, 13vw, 170px); line-height: 1.1; margin: 0 0 18px; letter-spacing: 0.06em; }
+.hero-name .dot { color: var(--accent); }
+.hero-en { font-weight: 700; white-space: nowrap; font-size: clamp(56px, 8.5vw, 110px);
+  letter-spacing: 0.06em; line-height: 1.1; margin: 0 0 26px; color: transparent;
+  -webkit-text-stroke: 1px var(--ink-faint); }
+.hero-role { font-size: 15px; letter-spacing: 0.28em; color: var(--ink-muted); }
+.hero-role b { font-weight: 500; color: var(--ink); }
+.vertical-motto { position: absolute; right: 34vw; top: 12vh; writing-mode: vertical-rl;
+  font-family: var(--serif); font-size: 13px; letter-spacing: 0.5em; color: var(--ink-faint); }
+.circle { position: absolute; border-radius: 50%; filter: blur(44px); pointer-events: none; }
+.c1 { width: 340px; height: 340px; left: 52vw; bottom: -130px; background: var(--accent-soft);
+  animation: drift1 16s ease-in-out infinite alternate; }
+.c2 { width: 200px; height: 200px; left: 70vw; top: -70px; background: var(--accent-soft);
+  animation: drift2 20s ease-in-out infinite alternate; }
+.c3 { width: 130px; height: 130px; left: 10vw; bottom: 4vh; background: var(--accent-soft);
+  opacity: .6; animation: drift1 24s ease-in-out infinite alternate-reverse; }
+@keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(-44px,-28px); } }
+@keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(34px,22px); } }
+
+/* 區塊標題（中文＋EN label＋短線） */
+.sec-head { margin-bottom: 36px; }
+.sec-head .zh { font-family: var(--serif); font-weight: 600; font-size: 30px; letter-spacing: 0.2em; }
+.sec-head .en { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--ink-faint); margin-top: 6px; }
+.sec-head .ln { width: 48px; height: 1px; background: var(--accent); margin-top: 14px; }
+
+/* Panel 2 — About */
+.p-about { width: 100vw; }
+.about-grid { display: flex; gap: 6vw; align-items: flex-start; }
+.about-text { max-width: 460px; font-size: 14px; line-height: 2.1; letter-spacing: 0.04em;
+  color: var(--ink-muted); }
+.about-text b { color: var(--ink); font-weight: 500; }
+.kw { display: flex; flex-wrap: wrap; gap: 10px; max-width: 380px; }
+.kw span { font-size: 12px; letter-spacing: 0.08em; border: 1px solid var(--line);
+  border-radius: 99px; padding: 7px 16px; color: var(--ink-muted); transition: all .25s; }
+.kw span:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Panels — Works */
+.p-work { width: 92vw; cursor: pointer; }
+.work-label { font-size: 10px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px; }
+.work-title { font-family: var(--serif); font-weight: 600; font-size: clamp(34px, 4.6vw, 58px);
+  letter-spacing: 0.08em; margin: 0 0 14px; }
+.work-desc { font-size: 13px; line-height: 2; color: var(--ink-muted); max-width: 420px; margin-bottom: 18px; }
+.work-thumb { width: min(52vw, 680px); height: min(30vw, 380px); border-radius: 8px; overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-soft), var(--line)); position: relative;
+  transition: transform .45s cubic-bezier(.25,.1,.25,1); }
+.p-work:hover .work-thumb { transform: scale(1.025); }
+.work-thumb .ph { position: absolute; inset: 0; display: flex; align-items: center;
+  justify-content: center; font-family: var(--serif); font-size: 40px; color: var(--ink-faint);
+  letter-spacing: 0.2em; }
+.work-meta { display: flex; gap: 8px; margin-top: 16px; }
+.work-meta span { font-size: 10px; letter-spacing: 0.12em; color: var(--accent);
+  background: var(--accent-soft); border-radius: 3px; padding: 4px 10px; }
+.work-row { display: flex; gap: 5vw; align-items: center; }
+
+/* Panel — Contact */
+.p-contact { width: 100vw; align-items: flex-start; }
+.contact-line { font-family: var(--serif); font-size: clamp(26px, 3.2vw, 44px);
+  letter-spacing: 0.12em; margin: 0 0 28px; }
+.contact-links { display: flex; flex-direction: column; gap: 14px; font-size: 14px;
+  letter-spacing: 0.1em; }
+.contact-links a { color: var(--ink-muted); text-decoration: none; border-bottom: 1px solid var(--line);
+  padding-bottom: 4px; width: fit-content; transition: all .25s; }
+.contact-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── 手機版：退化成直向 ── */
+@media (max-width: 768px) {
+  html, body { overflow: auto; }
+  .track { display: block; height: auto; transform: none !important; }
+  .panel { width: 100% !important; height: auto; min-height: 70vh; padding: 18vw 8vw; }
+  .hero-name { white-space: normal; font-size: 17vw; }
+  .hero-en { white-space: normal; font-size: 9vw; }
+  .vertical-motto { display: none; }
+  .work-thumb { width: 100%; height: 52vw; }
+  .ui-hint { display: none; }
+  .rv { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .circle, .ui-hint { animation: none; }
+  .rv { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="fixed-ui ui-logo">張</div>
+<div class="fixed-ui ui-nav">
+  <a href="#" title="獨立直向履歷頁（原型未含）">履歷</a><a href="#works">作品</a><a href="#contact">聯絡</a>
+  <div class="sep"></div><a href="#">EN</a>
+  <button id="themeBtn">深色 ◐</button>
+</div>
+<div class="fixed-ui ui-gh"><a href="https://github.com/Gexianss">GITHUB — GEXIANSS</a></div>
+<div class="fixed-ui ui-hint">SCROLL →</div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+
+<div class="track" id="track">
+
+  <section class="panel p-hero active">
+    <div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div>
+    <div class="greet rv">こんにちは — 你好，我是</div>
+    <h1 class="hero-name rv">張溦珊<span class="dot">。</span></h1>
+    <div class="hero-en rv">CHANG WEI-SHAN — FRONTEND ENGINEER</div>
+    <div class="hero-role rv"><b>前端工程師</b> — FRONTEND × FULL-STACK × AI TOOLING ／ REMOTE-FIRST, TAIWAN</div>
+    <div class="vertical-motto">每個重複的任務，都值得被自動化</div>
+  </section>
+
+  <section class="panel p-about">
+    <div class="sec-head rv"><div class="zh">關於</div><div class="en">About</div><div class="ln"></div></div>
+    <div class="about-grid rv">
+      <p class="about-text">
+        2.5 年開發經驗，從前端出發、往全端與 DevOps 延伸：<b>React 與 Node.js</b> 是日常，
+        <b>WebSocket 即時系統</b>與 <b>IoT 監控</b>是擅長的戰場，
+        產品從寫下第一行程式碼到 <b>GCP 上雲、CI/CD 零停機部署</b>都能獨立完成。
+        同時深度投入 <b>AI 驅動開發</b>——用 Claude Code、MCP 與自動化工作流，
+        把半天的工作變成十分鐘。
+      </p>
+      <div class="kw">
+        <span>React / Vite</span><span>Node.js / Express</span><span>WebSocket</span>
+        <span>GCP / Docker / CI·CD</span><span>Grafana / ELK</span><span>D3.js</span>
+        <span>MQTT / Modbus</span><span>Claude Code / MCP</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel p-work" id="works">
+    <div class="work-row">
+      <div>
+        <div class="work-label rv">POS System — Side Project</div>
+        <h2 class="work-title rv">Noodle POS</h2>
+        <p class="work-desc rv">為實體麵店打造的點餐＋出單系統：前台點餐、廚房三單制出單、
+          每日報表看板。從需求訪談、UI token 設計到熱感印表機整合，一人完成。</p>
+        <div class="work-meta rv"><span>React</span><span>Node.js</span><span>ESC/POS</span><span>Recharts</span></div>
+      </div>
+      <div class="work-thumb rv"><div class="ph">麵</div></div>
+    </div>
+  </section>
+
+  <section class="panel p-work">
+    <div class="work-row">
+      <div>
+        <div class="work-label rv">Open Source — Claude Code Plugin</div>
+        <h2 class="work-title rv">project-handbook</h2>
+        <p class="work-desc rv">雙受眾專案手冊產生器：掃描程式碼健康度、依賴與測試缺口，
+          訪談補足程式碼外的知識，輸出給人看的 HTML 手冊＋給 AI 讀的結構化資料。</p>
+        <div class="work-meta rv"><span>Node.js</span><span>CLI</span><span>Claude Code</span></div>
+      </div>
+      <div class="work-thumb rv"><div class="ph">冊</div></div>
+    </div>
+  </section>
+
+  <section class="panel p-work">
+    <div class="work-row">
+      <div>
+        <div class="work-label rv">IoT Monitoring — Professional Work</div>
+        <h2 class="work-title rv">IoT 監控系統 ×3</h2>
+        <p class="work-desc rv">半年內獨立交付三套大型監控系統：WebSocket 即時數據、
+          JSMpeg 影像串流、D3.js 即時圖表，整合 MQTT 與 Modbus 通訊協定。</p>
+        <div class="work-meta rv"><span>WebSocket</span><span>D3.js</span><span>MQTT</span><span>JSMpeg</span></div>
+      </div>
+      <div class="work-thumb rv"><div class="ph">監</div></div>
+    </div>
+  </section>
+
+  <section class="panel p-contact" id="contact">
+    <div class="sec-head rv"><div class="zh">聯絡</div><div class="en">Contact</div><div class="ln"></div></div>
+    <p class="contact-line rv">一起做點什麼吧<span style="color:var(--accent)">。</span></p>
+    <div class="contact-links rv">
+      <a href="mailto:shiaushen@gmail.com">shiaushen@gmail.com</a>
+      <a href="https://github.com/Gexianss">github.com/Gexianss</a>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const track = document.getElementById('track');
+const bar = document.getElementById('bar');
+const panels = [...document.querySelectorAll('.panel')];
+const isMobile = () => matchMedia('(max-width: 768px)').matches;
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+let target = 0, current = 0, max = 0;
+function recalc() { max = Math.max(0, track.scrollWidth - innerWidth); }
+recalc(); addEventListener('resize', recalc);
+
+addEventListener('wheel', e => {
+  if (isMobile()) return;
+  target = Math.min(max, Math.max(0, target + e.deltaY));
+}, { passive: true });
+
+addEventListener('keydown', e => {
+  if (isMobile()) return;
+  if (e.key === 'ArrowRight') target = Math.min(max, target + innerWidth * 0.9);
+  if (e.key === 'ArrowLeft') target = Math.max(0, target - innerWidth * 0.9);
+});
+
+// 導航錨點 → 橫向位置
+document.querySelectorAll('.ui-nav a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const el = document.querySelector(a.getAttribute('href'));
+    if (!el || isMobile()) return;
+    e.preventDefault();
+    target = Math.min(max, el.offsetLeft - innerWidth * 0.04);
+  });
+});
+
+function tick() {
+  if (!isMobile()) {
+    current += (target - current) * (reduced ? 1 : 0.075);
+    track.style.transform = `translateX(${-current}px)`;
+    bar.style.width = (max ? (current / max) * 100 : 0) + '%';
+    panels.forEach(p => {
+      const mid = p.offsetLeft + p.offsetWidth / 2 - current;
+      p.classList.toggle('active', mid > -innerWidth * 0.2 && mid < innerWidth * 1.1);
+    });
+  }
+  requestAnimationFrame(tick);
+}
+tick();
+
+// 深淺色切換
+const btn = document.getElementById('themeBtn');
+btn.addEventListener('click', () => {
+  const root = document.documentElement;
+  const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  root.dataset.theme = next;
+  btn.textContent = next === 'dark' ? '深色 ◐' : '淺色 ◑';
+});
+</script>
+</body>
+</html>

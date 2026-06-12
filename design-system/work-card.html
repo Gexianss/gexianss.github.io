@@ -1,0 +1,40 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>作品卡片 — hover 上浮＋陰影</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+body { margin: 0; padding: 32px; background: #F7F4EF; color: #2B2A26; font-family: 'Noto Sans TC', sans-serif; }
+.grid { display: flex; gap: 16px; }
+.card { flex: 1; background: #fff; border-radius: 6px; padding: 16px; cursor: pointer;
+        box-shadow: 0 1px 3px rgba(43,42,38,0.08);
+        transition: transform .25s ease, box-shadow .25s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(43,42,38,0.13); }
+.thumb { height: 96px; border-radius: 4px; margin-bottom: 12px;
+         background: linear-gradient(135deg, rgba(45,77,142,0.12), rgba(43,42,38,0.06)); }
+.t { font-family: 'Noto Serif TC', serif; font-size: 15px; margin-bottom: 4px; }
+.d { font-size: 12px; opacity: 0.6; line-height: 1.7; }
+.tags { margin-top: 10px; display: flex; gap: 6px; }
+.tag { font-size: 10px; letter-spacing: 0.1em; color: #2D4D8E; background: rgba(45,77,142,0.1);
+       border-radius: 3px; padding: 3px 8px; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="card">
+    <div class="thumb"></div>
+    <div class="t">Noodle POS</div>
+    <div class="d">餐飲點餐＋出單系統，從前台點餐到廚房出單的完整流程。</div>
+    <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span></div>
+  </div>
+  <div class="card">
+    <div class="thumb"></div>
+    <div class="t">project-handbook</div>
+    <div class="d">雙受眾專案手冊產生器，已發布的開源 Claude Code plugin。</div>
+    <div class="tags"><span class="tag">Node.js</span><span class="tag">CLI</span></div>
+  </div>
+</div>
+</body>
+</html>

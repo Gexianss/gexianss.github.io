@@ -1,0 +1,22 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>區塊標題 — 中文＋英文 label＋細線</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400&display=swap');
+body { margin: 0; padding: 36px 32px; background: #F7F4EF; color: #2B2A26; font-family: 'Noto Sans TC', sans-serif; }
+.sec { margin-bottom: 44px; }
+.zh { font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 26px; letter-spacing: 0.2em; margin-bottom: 4px; }
+.en { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.45; }
+.line { height: 1px; background: rgba(43,42,38,0.15); margin-top: 14px; position: relative; }
+.line::before { content: ''; position: absolute; left: 0; top: 0; width: 48px; height: 1px; background: #2D4D8E; }
+</style>
+</head>
+<body>
+<div class="sec"><div class="zh">關於</div><div class="en">About</div><div class="line"></div></div>
+<div class="sec"><div class="zh">經歷</div><div class="en">Experience</div><div class="line"></div></div>
+<div class="sec"><div class="zh">作品</div><div class="en">Works</div><div class="line"></div></div>
+</body>
+</html>

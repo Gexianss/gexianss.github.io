@@ -1,0 +1,55 @@
+<!-- @dsCard group="Sections" -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Hero 首屏 — 深色模式</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+body { margin: 0; }
+.hero { position: relative; overflow: hidden; height: 100vh; min-height: 380px;
+        background: #1C1B19; color: #EDEAE3; font-family: 'Noto Sans TC', sans-serif; }
+.nav { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center;
+       padding: 20px 28px; font-size: 12px; letter-spacing: 0.15em; }
+.nav .links span { margin-left: 18px; opacity: 0.65; }
+.logo { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+        font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 14px;
+        border-radius: 4px; background: #7E9CD8; color: #1C1B19; }
+.lang { font-size: 11px; opacity: 0.5; margin-left: 18px; }
+.body { position: relative; z-index: 2; padding: 9vh 28px 0 36px; }
+.greet { font-size: 12px; letter-spacing: 0.4em; opacity: 0.55; margin-bottom: 14px; }
+h1 { font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 46px; line-height: 1.15;
+     margin: 0 0 12px; letter-spacing: 0.04em; }
+.accent { color: #7E9CD8; }
+.role { font-size: 14px; letter-spacing: 0.25em; opacity: 0.7; }
+.role b { font-weight: 500; }
+.vertical { position: absolute; right: 30px; top: 80px; z-index: 2; writing-mode: vertical-rl;
+            font-family: 'Noto Serif TC', serif; font-size: 13px; letter-spacing: 0.5em; opacity: 0.45; }
+.circle { position: absolute; border-radius: 50%; filter: blur(40px); z-index: 1; }
+.c1 { width: 300px; height: 300px; right: -60px; bottom: -120px; background: rgba(126,156,216,0.13);
+      animation: drift1 14s ease-in-out infinite alternate; }
+.c2 { width: 180px; height: 180px; left: 55%; top: -60px; background: rgba(126,156,216,0.08);
+      animation: drift2 18s ease-in-out infinite alternate; }
+.c3 { width: 120px; height: 120px; left: 8%; bottom: -30px; background: rgba(237,234,227,0.05);
+      animation: drift1 22s ease-in-out infinite alternate-reverse; }
+@keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(-40px,-25px); } }
+@keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(30px,20px); } }
+@media (prefers-reduced-motion: reduce) { .circle { animation: none; } }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="c1 circle"></div><div class="c2 circle"></div><div class="c3 circle"></div>
+  <div class="nav">
+    <div class="logo">張</div>
+    <div class="links"><span>關於</span><span>經歷</span><span>作品</span><span>聯絡</span><span class="lang">EN / 中</span></div>
+  </div>
+  <div class="body">
+    <div class="greet">こんにちは — 你好</div>
+    <h1>張溦珊<span class="accent">。</span></h1>
+    <div class="role"><b>前端工程師</b> — FRONTEND ENGINEER, TAIWAN</div>
+  </div>
+  <div class="vertical">手で作る、心で設計する</div>
+</div>
+</body>
+</html>

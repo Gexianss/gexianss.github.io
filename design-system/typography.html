@@ -1,0 +1,29 @@
+<!-- @dsCard group="Type" -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>字型階梯 — Noto Serif TC × Noto Sans TC</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+body { margin: 0; padding: 28px; background: #F7F4EF; color: #2B2A26; font-family: 'Noto Sans TC', sans-serif; }
+.row { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; }
+.meta { width: 150px; flex: none; font-size: 11px; opacity: 0.5; font-family: monospace; }
+.hero  { font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 46px; letter-spacing: 0.04em; line-height: 1.15; }
+.h2    { font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 26px; letter-spacing: 0.2em; }
+.h3    { font-family: 'Noto Serif TC', serif; font-weight: 400; font-size: 17px; letter-spacing: 0.15em; }
+.body  { font-size: 14px; letter-spacing: 0.04em; line-height: 1.9; }
+.small { font-size: 12px; letter-spacing: 0.15em; opacity: 0.62; }
+.label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.45; }
+.accent { color: #2D4D8E; }
+</style>
+</head>
+<body>
+<div class="row"><div class="meta">hero / serif 600 / 46px</div><div class="hero">謝 ○○<span class="accent">。</span></div></div>
+<div class="row"><div class="meta">h2 / serif 600 / 26px</div><div class="h2">作品</div></div>
+<div class="row"><div class="meta">h3 / serif 400 / 17px</div><div class="h3">Noodle POS — 餐飲點餐系統</div></div>
+<div class="row"><div class="meta">body / sans 400 / 14px</div><div class="body">內文使用 Noto Sans TC，行高 1.9、字距 0.04em，日系排版重視行間的呼吸感。中英混排時保持同一行高。</div></div>
+<div class="row"><div class="meta">small / sans / 12px</div><div class="small">前端工程師 — FRONTEND ENGINEER, TAIWAN</div></div>
+<div class="row"><div class="meta">label / sans / 10px</div><div class="label">Works</div></div>
+</body>
+</html>
