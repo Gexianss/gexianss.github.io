@@ -1,0 +1,28 @@
+.logo {
+  position: fixed; z-index: 50; top: 24px; left: 28px; width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-weight: 600; font-size: 16px; text-decoration: none;
+  border-radius: 4px; background: var(--color-accent); color: var(--color-on-accent);
+}
+.nav {
+  position: fixed; z-index: 50; top: 28px; right: 28px; display: flex; align-items: center;
+  gap: 20px; font-size: 12px; letter-spacing: 0.18em;
+}
+.nav a { text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
+.nav a:hover { opacity: 1; }
+.sep { width: 1px; height: 12px; background: var(--color-line); }
+.pill {
+  background: none; border: 1px solid var(--color-line); color: var(--color-ink);
+  font-size: 11px; letter-spacing: 0.12em; border-radius: 99px; padding: 5px 12px;
+  transition: border-color 0.2s;
+}
+.pill:hover { border-color: var(--color-accent); }
+.github {
+  position: fixed; z-index: 50; bottom: 26px; left: 28px; font-size: 11px;
+  letter-spacing: 0.2em; color: var(--color-ink-faint); text-decoration: none;
+}
+.github:hover { color: var(--color-accent); }
+@media (max-width: 768px) {
+  .github { display: none; }
+  .nav { gap: 12px; }
+}
