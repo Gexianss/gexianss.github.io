@@ -14,7 +14,7 @@
 | 技術棧 | React + Vite（**JavaScript**，不用 TS）+ Framer Motion + react-router-dom |
 | 樣式 | CSS Modules + CSS 變數 design tokens（`design-system/tokens.css` 為單一事實來源） |
 | 首頁 | 橫向 slider（滾輪/方向鍵/拖曳驅動），手機退化為直向滾動 |
-| 主題 | 深淺色切換（`data-theme`），首頁預設深色、內頁預設淺色，使用者切換後全站跟隨並存 localStorage |
+| 主題 | 深淺色切換（`data-theme`）。未手動切換時：首頁預設深色、內頁預設淺色；一旦手動切換，全站固定該主題並存入 localStorage |
 | 語言 | 中英雙語切換（React Context + `zh.json`/`en.json` 字典，localStorage 記憶，同步 `<html lang>`） |
 | 強調色 | 靛藍：淺色 `#2D4D8E`／深色 `#7E9CD8` |
 | 字型 | Noto Serif TC（標題）＋ Noto Sans TC（內文），Google Fonts |
