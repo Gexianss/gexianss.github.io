@@ -4,3 +4,5 @@ dist/
 *.local
 public/resume.json
 public/llms.txt
+test-results/
+playwright-report/
