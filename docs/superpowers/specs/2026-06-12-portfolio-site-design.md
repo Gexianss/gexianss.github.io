@@ -15,7 +15,7 @@
 | 樣式 | CSS Modules + CSS 變數 design tokens（`design-system/tokens.css` 為單一事實來源） |
 | 首頁 | 橫向 slider（滾輪/方向鍵/拖曳驅動），手機退化為直向滾動 |
 | 主題 | 深淺色切換（`data-theme`）。未手動切換時：首頁預設深色、內頁預設淺色；一旦手動切換，全站固定該主題並存入 localStorage |
-| 語言 | 中英雙語切換（React Context + `zh.json`/`en.json` 字典，localStorage 記憶，同步 `<html lang>`） |
+| 語言 | 中英雙語切換，使用 **react-i18next**（`zh.json`/`en.json`，localStorage 記憶，同步 `<html lang>`） |
 | 強調色 | 靛藍：淺色 `#2D4D8E`／深色 `#7E9CD8` |
 | 字型 | Noto Serif TC（標題）＋ Noto Sans TC（內文），Google Fonts |
 | PWA | vite-plugin-pwa：manifest＋icon＋離線預快取，可安裝 |
@@ -47,6 +47,8 @@
 - Hero：宋體大字「張溦珊。」＋描邊英文名「CHANG WEI-SHAN — FRONTEND ENGINEER」刻意溢出右緣（暗示橫向內容）；直書座右銘「每個重複的任務，都值得被自動化」；背景 2-3 個模糊靛藍圓形緩慢漂移（16-24s）
 - 區塊標題：中文宋體大標＋英文小型 label＋帶 48px 靛藍短線的細分隔線
 - 動畫：panel 進入視口時逐元素淡入上移（0.7s、stagger 0.12s）；作品縮圖 hover scale 1.025；換頁全版轉場（AnimatePresence）；全部尊重 `prefers-reduced-motion`
+- **開場掀頁動畫**：首次進入首頁時，一片帶印章 logo 的全版簾幕由下而上掀開（約 1.2s）露出 Hero；每個 session 只播一次（sessionStorage），reduced-motion 時跳過
+- **光暈延伸整條 slider**：背景光暈不只在 Hero——獨立的固定定位光暈層鋪在軌道後方，以約 0.3× 的視差速度跟隨橫向捲動，沿途配置 5-6 個圓，滑到尾端仍有氛圍
 
 ## 5. 首頁橫向 slider 實作要點
 
@@ -65,16 +67,36 @@
 - 作品資料 `works.js`：slug、標題、分類 label、描述、技術 tags、截圖路徑、GitHub 連結
 - 對外公開資訊：email、GitHub；**電話號碼不放網站**（避免爬蟲騷擾，履歷 PDF 才有）
 
-## 7. 擴充功能（第一階段，納入本次範圍）
+## 7. 擴充功能
+
+**本次範圍**（使用者指定優先）：
 
 | 功能 | 對應履歷技能 | 說明 |
 |------|------------|------|
-| D3.js 技能視覺化 | D3.js | 履歷頁技能區用 D3 做互動視覺化（取代靜態列表） |
-| AI 可讀履歷 | MCP/AI 整合 | 輸出 `resume.json`（JSON Resume 格式）＋`llms.txt` |
-| 列印友善 | — | `/resume` 的 print CSS |
-| Lighthouse CI | CI/CD | Actions 跑 Lighthouse，分數 badge 進 README |
+| AI 可讀履歷 | MCP/AI 整合 | 輸出 `resume.json`（JSON Resume 格式）＋`llms.txt`，內容由 i18n 字典同源產生 |
 
-第二階段（**不在本次範圍**，另立 spec）：WebSocket 即時訪客足跡（Cloud Run）、可觀測性儀表板、AI 履歷問答。
+**後續批次**（不在本次範圍）：D3.js 技能視覺化、`/resume` print CSS、Lighthouse CI badge。
+第二階段（另立 spec）：WebSocket 即時訪客足跡（Cloud Run）、可觀測性儀表板、AI 履歷問答。
+
+## 7.5 元件切分原則
+
+遵守 React 慣例，嚴禁單檔巨石。預計結構：
+
+```
+src/
+├─ components/
+│  ├─ layout/    FixedUI（Logo/Nav/ThemeToggle/LangToggle/GitHubLink）、ProgressLine、PageReveal
+│  ├─ home/      HorizontalSlider、GlowLayer、HeroPanel、AboutPanel、WorkPanel、ContactPanel
+│  ├─ resume/    Timeline、SkillTable
+│  ├─ work/      WorkDetail、WorkPager（前/後作品直書切換）
+│  └─ common/    SectionHead、Reveal、Tag
+├─ hooks/        useHorizontalScroll、useTheme、useReducedMotion
+├─ i18n/         index.js、zh.json、en.json
+├─ data/         works.js
+└─ styles/       tokens.css、global.css
+```
+
+每個元件單一職責、props 介面清楚；文案一律走 i18n，元件內不寫死字串。
 
 ## 8. 測試與品質
 
