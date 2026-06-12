@@ -1,0 +1,9 @@
+.layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; width: 400vw; }
+.circle { position: absolute; border-radius: 50%; filter: blur(44px); background: var(--color-accent-soft); }
+.c1 { animation: drift1 16s ease-in-out infinite alternate; }
+.c2 { animation: drift2 20s ease-in-out infinite alternate; }
+.c3 { opacity: 0.6; animation: drift1 24s ease-in-out infinite alternate-reverse; }
+@keyframes drift1 { from { transform: translate(0, 0); } to { transform: translate(-44px, -28px); } }
+@keyframes drift2 { from { transform: translate(0, 0); } to { transform: translate(34px, 22px); } }
+@media (prefers-reduced-motion: reduce) { .c1, .c2, .c3 { animation: none; } }
+@media (max-width: 768px) { .layer { width: 100vw; } }

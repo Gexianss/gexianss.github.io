@@ -1,0 +1,10 @@
+.work { width: 92vw; cursor: pointer; }
+.row { display: flex; gap: 5vw; align-items: center; }
+.label { font-size: 10px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 16px; }
+.title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(34px, 4.6vw, 58px); letter-spacing: 0.08em; margin: 0 0 14px; }
+.desc { font-size: 13px; line-height: 2; color: var(--color-ink-muted); max-width: 420px; margin: 0 0 18px; }
+.meta { display: flex; gap: 8px; }
+.thumb { width: min(52vw, 680px); height: min(30vw, 380px); border-radius: 8px; overflow: hidden; background: linear-gradient(135deg, var(--color-accent-soft), var(--color-line)); position: relative; transition: transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1); flex: none; }
+.work:hover .thumb { transform: scale(1.025); }
+.ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 40px; color: var(--color-ink-faint); letter-spacing: 0.2em; }
+@media (max-width: 768px) { .row { flex-direction: column; align-items: flex-start; } .thumb { width: 100%; height: 52vw; } }
