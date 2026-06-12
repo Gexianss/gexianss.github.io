@@ -1,0 +1,91 @@
+{
+  "nav": { "resume": "履歷", "works": "作品", "contact": "聯絡", "lang": "EN", "themeDark": "深色 ◐", "themeLight": "淺色 ◑" },
+  "hero": {
+    "greet": "こんにちは — 你好，我是",
+    "name": "張溦珊",
+    "enName": "CHANG WEI-SHAN — FRONTEND ENGINEER",
+    "role": "前端工程師 — FRONTEND × FULL-STACK × AI TOOLING ／ REMOTE-FIRST, TAIWAN",
+    "motto": "每個重複的任務，都值得被自動化",
+    "scrollHint": "SCROLL →"
+  },
+  "about": {
+    "zh": "關於",
+    "en": "About",
+    "text": "2.5 年開發經驗，從前端出發、往全端與 DevOps 延伸：React 與 Node.js 是日常，WebSocket 即時系統與 IoT 監控是擅長的戰場，產品從第一行程式碼到 GCP 上雲、CI/CD 零停機部署都能獨立完成。同時深度投入 AI 驅動開發——用 Claude Code、MCP 與自動化工作流，把半天的工作變成十分鐘。",
+    "keywords": ["React / Vite", "Node.js / Express", "WebSocket", "GCP / Docker / CI·CD", "Grafana / ELK", "D3.js", "MQTT / Modbus", "Claude Code / MCP"]
+  },
+  "works": {
+    "zh": "作品",
+    "en": "Works",
+    "prev": "前一個作品",
+    "next": "下一個作品",
+    "back": "← 作品一覽",
+    "noodle-pos": {
+      "label": "POS System — Side Project",
+      "title": "Noodle POS",
+      "desc": "為實體麵店打造的點餐＋出單系統：前台點餐、廚房三單制出單、每日報表看板。從需求訪談、UI token 設計到熱感印表機整合，一人完成。",
+      "detail": "從零打造的完整 POS：React 前端＋Node.js 後端，WebSocket 推播出單、ESC/POS 熱感印表機三單制（內場/外帶/客存根）、Recharts 報表看板支援拖曳排版。重視設計系統——字級階梯與顏色語義 token 全站貫徹，對比符合 AA。"
+    },
+    "project-handbook": {
+      "label": "Open Source — Claude Code Plugin",
+      "title": "project-handbook",
+      "desc": "雙受眾專案手冊產生器：掃描程式碼健康度、依賴與測試缺口，訪談補足程式碼外的知識，輸出給人看的 HTML 手冊＋給 AI 讀的結構化資料。",
+      "detail": "第一個公開發布的 Claude Code plugin。核心設計：模板與資料分離、diff 驅動稽核（manifest 記錄基準 commit 以節省 token）、每頁新鮮度標記。同一份資料同時輸出人類可讀的 HTML 與 AI 可讀的 markdown/JSON。"
+    },
+    "iot-monitoring": {
+      "label": "IoT Monitoring — Professional Work",
+      "title": "IoT 監控系統 ×3",
+      "desc": "半年內獨立交付三套大型監控系統：WebSocket 即時數據、JSMpeg 影像串流、D3.js 即時圖表，整合 MQTT 與 Modbus 通訊協定。",
+      "detail": "包含電表監控（Modbus 上傳、前端即時呈現，兩天完成原估一週的升級）與智慧燈光控制（WebSocket 廣播鎖定機制解決多使用者搶控衝突）。公司專案無公開原始碼，以架構說明呈現。"
+    }
+  },
+  "contact": {
+    "zh": "聯絡",
+    "en": "Contact",
+    "line": "一起做點什麼吧",
+    "email": "shiaushen@gmail.com",
+    "github": "github.com/Gexianss"
+  },
+  "resume": {
+    "zh": "履歷",
+    "en": "Resume",
+    "title": "張溦珊",
+    "subtitle": "前端工程師 ／ 全端開發 ／ AI 工具整合",
+    "summary": "擁有 2.5 年前端開發經驗，技術橫跨前端（React / SCSS / Vite）、後端（Node.js / Express）及雲端部署（GCP Cloud Run / GitLab CI/CD）。熟悉 WebSocket 即時通訊系統開發與 IoT 監控應用，具備完整的 DevOps 與可觀測性（Grafana、ELK）實戰能力。積極擁抱 AI 工具，深度掌握 Claude Code、MCP Server、Agent/Hook 開發。",
+    "jobs": [
+      {
+        "company": "無限創意有限公司",
+        "title": "前端工程師（前後端／DevOps）",
+        "period": "2024.07 — 2026.06",
+        "points": [
+          "維運多項產品：React、Node.js、Express、WebSocket、Redis、SCSS、Vite、Webpack",
+          "主導首個產品上雲：K3s 開發測試環境＋GCP Cloud Run 正式環境，GitLab CI/CD + Docker 零停機自動部署",
+          "將上雲流程系統化為 Claude Code Skill，後續產品上雲時間從一個月縮短至 3～5 天",
+          "導入 Grafana + ELK 日誌可視化；以 Pino 取代 Jaeger 降低監控資源成本",
+          "主導公司內部 Claude Code 教育訓練；建立 Figma MCP 協助設計流程轉換；以 Skill/MCP 將半天任務縮短至 10 分鐘內"
+        ]
+      },
+      {
+        "company": "佳帝科技有限公司",
+        "title": "前端工程師",
+        "period": "2024.01 — 2024.06",
+        "points": [
+          "半年內獨立完成 3 套大型 IoT 監控系統：WebSocket、JSMpeg 影像串流、D3.js 即時圖表",
+          "整合 MQTT 與 Modbus 通訊協定，負責通訊設定與前端資料展示",
+          "電表監控系統升級原估一週、兩天交付；設計 WebSocket 廣播鎖定機制解決多使用者搶控衝突"
+        ]
+      }
+    ],
+    "skillGroups": [
+      { "name": "前端", "items": "React · SCSS · Vite · Webpack · jQuery" },
+      { "name": "後端 / API", "items": "Node.js · Express · WebSocket · Redis · REST API" },
+      { "name": "雲端 / DevOps", "items": "GCP Cloud Run · K3s · Docker · GitLab CI/CD" },
+      { "name": "監控 / 日誌", "items": "Grafana · ELK Stack · Filebeat · Logstash · Pino" },
+      { "name": "IoT 通訊", "items": "MQTT · Modbus · JSMpeg" },
+      { "name": "資料視覺化", "items": "D3.js" },
+      { "name": "AI 工具", "items": "Claude Code · MCP Server · Agent · Hook · Figma MCP" },
+      { "name": "版本控制", "items": "Git · GitLab · git-flow" }
+    ]
+  },
+  "reveal": { "aria": "頁面載入中" }
+}

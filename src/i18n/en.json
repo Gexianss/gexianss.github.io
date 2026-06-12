@@ -1,0 +1,91 @@
+{
+  "nav": { "resume": "Resume", "works": "Works", "contact": "Contact", "lang": "中", "themeDark": "Dark ◐", "themeLight": "Light ◑" },
+  "hero": {
+    "greet": "Hello — I'm",
+    "name": "Chang Wei-Shan",
+    "enName": "CHANG WEI-SHAN — FRONTEND ENGINEER",
+    "role": "Frontend Engineer — FRONTEND × FULL-STACK × AI TOOLING / REMOTE-FIRST, TAIWAN",
+    "motto": "Every repetitive task deserves automation",
+    "scrollHint": "SCROLL →"
+  },
+  "about": {
+    "zh": "About",
+    "en": "About",
+    "text": "2.5 years of development experience, growing from frontend into full-stack and DevOps: React and Node.js are my daily tools, WebSocket real-time systems and IoT monitoring are my home turf, and I can take a product from its first line of code to GCP deployment with zero-downtime CI/CD on my own. I'm also deep into AI-driven development — using Claude Code, MCP and automated workflows to turn half-day tasks into ten minutes.",
+    "keywords": ["React / Vite", "Node.js / Express", "WebSocket", "GCP / Docker / CI·CD", "Grafana / ELK", "D3.js", "MQTT / Modbus", "Claude Code / MCP"]
+  },
+  "works": {
+    "zh": "Works",
+    "en": "Works",
+    "prev": "Previous work",
+    "next": "Next work",
+    "back": "← All works",
+    "noodle-pos": {
+      "label": "POS System — Side Project",
+      "title": "Noodle POS",
+      "desc": "An ordering and kitchen-ticket system built for a real noodle shop: front-of-house ordering, three-ticket kitchen printing, daily report dashboard. Requirements interviews, UI token design and thermal printer integration — all done solo.",
+      "detail": "A complete POS built from scratch: React frontend + Node.js backend, WebSocket-pushed ticket printing, three-ticket ESC/POS thermal printing (kitchen / takeout / customer stub), and a drag-and-drop Recharts report dashboard. Built on a disciplined design system — type scale and semantic color tokens throughout, AA contrast compliant."
+    },
+    "project-handbook": {
+      "label": "Open Source — Claude Code Plugin",
+      "title": "project-handbook",
+      "desc": "A dual-audience project handbook generator: scans code health, dependencies and test gaps, interviews for knowledge outside the code, and outputs an HTML handbook for humans plus structured data for AI.",
+      "detail": "My first published Claude Code plugin. Core design: template/data separation, diff-driven audits (a manifest records the baseline commit to save tokens), and per-page freshness markers. One data source renders both human-readable HTML and AI-readable markdown/JSON."
+    },
+    "iot-monitoring": {
+      "label": "IoT Monitoring — Professional Work",
+      "title": "IoT Monitoring ×3",
+      "desc": "Three large monitoring systems delivered independently within six months: WebSocket real-time data, JSMpeg video streaming, D3.js live charts, integrating MQTT and Modbus protocols.",
+      "detail": "Includes a power-meter monitor (Modbus upload with real-time frontend display — a one-week upgrade estimate delivered in two days) and a smart lighting controller (a WebSocket broadcast locking mechanism that resolves multi-user control conflicts). Company projects without public source; presented as architecture walkthroughs."
+    }
+  },
+  "contact": {
+    "zh": "Contact",
+    "en": "Contact",
+    "line": "Let's build something",
+    "email": "shiaushen@gmail.com",
+    "github": "github.com/Gexianss"
+  },
+  "resume": {
+    "zh": "Resume",
+    "en": "Resume",
+    "title": "Chang Wei-Shan",
+    "subtitle": "Frontend Engineer / Full-Stack / AI Tooling",
+    "summary": "2.5 years of frontend development experience spanning frontend (React / SCSS / Vite), backend (Node.js / Express) and cloud deployment (GCP Cloud Run / GitLab CI/CD). Experienced in WebSocket real-time systems and IoT monitoring, with hands-on DevOps and observability (Grafana, ELK). An early adopter of AI tooling with deep command of Claude Code, MCP servers, and Agent/Hook development.",
+    "jobs": [
+      {
+        "company": "Infinite Creativity Co., Ltd.",
+        "title": "Frontend Engineer (Full-stack / DevOps)",
+        "period": "2024.07 — 2026.06",
+        "points": [
+          "Maintained multiple products: React, Node.js, Express, WebSocket, Redis, SCSS, Vite, Webpack",
+          "Led the company's first cloud migration: K3s for dev/test, GCP Cloud Run for production, zero-downtime deploys via GitLab CI/CD + Docker",
+          "Systematized the migration into a Claude Code Skill, cutting later products' cloud migration from one month to 3–5 days",
+          "Introduced Grafana + ELK log visualization; replaced Jaeger with Pino to cut monitoring resource costs",
+          "Led internal Claude Code training; built Figma MCP for the design team; packaged repetitive work into Skills/MCP, turning half-day tasks into under 10 minutes"
+        ]
+      },
+      {
+        "company": "Jiadi Technology Co., Ltd.",
+        "title": "Frontend Engineer",
+        "period": "2024.01 — 2024.06",
+        "points": [
+          "Independently delivered 3 large IoT monitoring systems in six months: WebSocket, JSMpeg video streaming, D3.js live charts",
+          "Integrated MQTT and Modbus protocols, owning comms configuration and frontend data display",
+          "Delivered a one-week power-meter upgrade in two days; designed a WebSocket broadcast lock to resolve multi-user control conflicts"
+        ]
+      }
+    ],
+    "skillGroups": [
+      { "name": "Frontend", "items": "React · SCSS · Vite · Webpack · jQuery" },
+      { "name": "Backend / API", "items": "Node.js · Express · WebSocket · Redis · REST API" },
+      { "name": "Cloud / DevOps", "items": "GCP Cloud Run · K3s · Docker · GitLab CI/CD" },
+      { "name": "Monitoring / Logs", "items": "Grafana · ELK Stack · Filebeat · Logstash · Pino" },
+      { "name": "IoT Protocols", "items": "MQTT · Modbus · JSMpeg" },
+      { "name": "Data Viz", "items": "D3.js" },
+      { "name": "AI Tooling", "items": "Claude Code · MCP Server · Agent · Hook · Figma MCP" },
+      { "name": "Version Control", "items": "Git · GitLab · git-flow" }
+    ]
+  },
+  "reveal": { "aria": "Loading" }
+}
