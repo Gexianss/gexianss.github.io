@@ -2,3 +2,5 @@ node_modules/
 dist/
 .superpowers/
 *.local
+public/resume.json
+public/llms.txt
