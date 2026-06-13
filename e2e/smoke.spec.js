@@ -4,9 +4,14 @@ test('首頁載入且橫向滑動有位移', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('h1')).toContainText('張溦珊');
   await page.waitForTimeout(2000); // 等掀頁動畫
-  for (let i = 0; i < 8; i++) { await page.mouse.wheel(0, 400); await page.waitForTimeout(80); }
+  for (let i = 0; i < 8; i++) {
+    await page.mouse.wheel(0, 400);
+    await page.waitForTimeout(80);
+  }
   await page.waitForTimeout(1200);
-  const transform = await page.evaluate(() => document.querySelector('[class*="track"]').style.transform);
+  const transform = await page.evaluate(
+    () => document.querySelector('[class*="track"]').style.transform,
+  );
   expect(transform).toMatch(/translateX\(-\d+/);
 });
 

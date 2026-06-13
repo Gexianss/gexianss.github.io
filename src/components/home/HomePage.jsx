@@ -35,8 +35,12 @@ export default function HomePage() {
         ))}
         <ContactPanel id="contact" />
       </div>
-      <div className={styles.progress}><div className={styles.bar} ref={barRef} /></div>
-      <div className={styles.hint} aria-hidden="true">SCROLL →</div>
+      <div className={styles.progress}>
+        <div className={styles.bar} ref={barRef} />
+      </div>
+      <div className={styles.hint} aria-hidden="true">
+        SCROLL →
+      </div>
     </div>
   );
 }

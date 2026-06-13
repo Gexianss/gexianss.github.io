@@ -12,25 +12,42 @@ export default function FixedUI({ onNavigateSection }) {
 
   const sectionLink = (id, label) =>
     isHome ? (
-      <a href={`#${id}`} onClick={(e) => { e.preventDefault(); onNavigateSection?.(id); }}>{label}</a>
+      <a
+        href={`#${id}`}
+        onClick={(e) => {
+          e.preventDefault();
+          onNavigateSection?.(id);
+        }}
+      >
+        {label}
+      </a>
     ) : (
       <Link to={`/#${id}`}>{label}</Link>
     );
 
   return (
     <>
-      <Link to="/" className={styles.logo} aria-label="Home">張</Link>
+      <Link to="/" className={styles.logo} aria-label="Home">
+        張
+      </Link>
       <nav className={styles.nav}>
         <Link to="/resume">{t('nav.resume')}</Link>
         {sectionLink('works', t('nav.works'))}
         {sectionLink('contact', t('nav.contact'))}
         <span className={styles.sep} />
-        <button className={styles.pill} onClick={toggleLang}>{t('nav.lang')}</button>
+        <button className={styles.pill} onClick={toggleLang}>
+          {t('nav.lang')}
+        </button>
         <button className={styles.pill} onClick={toggle}>
           {theme === 'dark' ? t('nav.themeDark') : t('nav.themeLight')}
         </button>
       </nav>
-      <a className={styles.github} href="https://github.com/Gexianss" target="_blank" rel="noreferrer">
+      <a
+        className={styles.github}
+        href="https://github.com/Gexianss"
+        target="_blank"
+        rel="noreferrer"
+      >
         GITHUB — GEXIANSS
       </a>
     </>

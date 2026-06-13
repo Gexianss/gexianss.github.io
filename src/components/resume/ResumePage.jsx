@@ -18,7 +18,10 @@ export default function ResumePage() {
     >
       <FixedUI />
       <header className={styles.header}>
-        <h1 className={styles.name}>{t('resume.title')}<span className={styles.dot}>。</span></h1>
+        <h1 className={styles.name}>
+          {t('resume.title')}
+          <span className={styles.dot}>。</span>
+        </h1>
         <p className={styles.subtitle}>{t('resume.subtitle')}</p>
         <p className={styles.summary}>{t('resume.summary')}</p>
       </header>
@@ -32,7 +35,9 @@ export default function ResumePage() {
               <h2 className={styles.jobTitle}>{job.title}</h2>
               <div className={styles.company}>{job.company}</div>
               <ul className={styles.points}>
-                {job.points.map((p) => <li key={p}>{p}</li>)}
+                {job.points.map((p) => (
+                  <li key={p}>{p}</li>
+                ))}
               </ul>
             </div>
           </article>
@@ -43,7 +48,10 @@ export default function ResumePage() {
       <table className={styles.skills}>
         <tbody>
           {skillGroups.map((g) => (
-            <tr key={g.name}><th>{g.name}</th><td>{g.items}</td></tr>
+            <tr key={g.name}>
+              <th>{g.name}</th>
+              <td>{g.items}</td>
+            </tr>
           ))}
         </tbody>
       </table>

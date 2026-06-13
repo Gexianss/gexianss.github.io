@@ -1,21 +1,22 @@
 /* 日系個人網站 Design Tokens — 單一事實來源 */
+
 /* 淺色模式（預設） */
 :root {
   /* 色彩 — 基底 */
-  --color-bg: #F7F4EF;            /* 米白底 */
-  --color-surface: #FFFFFF;       /* 卡片面 */
-  --color-ink: #2B2A26;           /* 墨色文字 */
+  --color-bg: #f7f4ef; /* 米白底 */
+  --color-surface: #ffffff; /* 卡片面 */
+  --color-ink: #2b2a26; /* 墨色文字 */
   --color-ink-muted: rgba(43, 42, 38, 0.62);
   --color-ink-faint: rgba(43, 42, 38, 0.45);
   --color-line: rgba(43, 42, 38, 0.15);
 
   /* 色彩 — 強調（靛藍） */
-  --color-accent: #2D4D8E;
+  --color-accent: #2d4d8e;
   --color-accent-soft: rgba(45, 77, 142, 0.14);
-  --color-on-accent: #FFFFFF;
+  --color-on-accent: #ffffff;
 
   /* 字型 */
-  --font-serif: 'Noto Serif TC', serif;   /* 標題、姓名、區塊名 */
+  --font-serif: 'Noto Serif TC', serif; /* 標題、姓名、區塊名 */
   --font-sans: 'Noto Sans TC', sans-serif; /* 內文、UI */
 
   /* 字級階梯 */
@@ -49,17 +50,15 @@
 
 /* 深色模式 */
 [data-theme='dark'] {
-  --color-bg: #1C1B19;            /* 墨黑帶暖 */
-  --color-surface: #26241F;
-  --color-ink: #EDEAE3;           /* 暖白文字 */
+  --color-bg: #1c1b19; /* 墨黑帶暖 */
+  --color-surface: #26241f;
+  --color-ink: #edeae3; /* 暖白文字 */
   --color-ink-muted: rgba(237, 234, 227, 0.62);
   --color-ink-faint: rgba(237, 234, 227, 0.45);
   --color-line: rgba(237, 234, 227, 0.15);
-
-  --color-accent: #7E9CD8;
+  --color-accent: #7e9cd8;
   --color-accent-soft: rgba(126, 156, 216, 0.13);
-  --color-on-accent: #1C1B19;
-
+  --color-on-accent: #1c1b19;
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-card-hover: 0 8px 20px rgba(0, 0, 0, 0.45);
 }

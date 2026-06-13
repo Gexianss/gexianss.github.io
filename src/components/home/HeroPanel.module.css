@@ -1,12 +1,68 @@
-.hero { width: 130vw; }
-.greet { font-size: 13px; letter-spacing: 0.45em; color: var(--color-ink-muted); margin-bottom: 20px; }
-.name { font-family: var(--font-serif); font-weight: 600; white-space: nowrap; font-size: clamp(72px, 13vw, 170px); line-height: 1.1; margin: 0 0 18px; letter-spacing: 0.06em; }
-.dot { color: var(--color-accent); }
-.enName { font-weight: 700; white-space: nowrap; font-size: clamp(56px, 8.5vw, 110px); letter-spacing: 0.06em; line-height: 1.1; margin: 0 0 26px; color: transparent; -webkit-text-stroke: 1px var(--color-ink-faint); }
-.role { font-size: 15px; letter-spacing: 0.28em; color: var(--color-ink-muted); }
-.motto { position: absolute; right: 34vw; top: 12vh; writing-mode: vertical-rl; font-family: var(--font-serif); font-size: 13px; letter-spacing: 0.5em; color: var(--color-ink-faint); }
+.hero {
+  width: 130vw;
+}
+
+.greet {
+  font-size: 13px;
+  letter-spacing: 0.45em;
+  color: var(--color-ink-muted);
+  margin-bottom: 20px;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  white-space: nowrap;
+  font-size: clamp(72px, 13vw, 170px);
+  line-height: 1.1;
+  margin: 0 0 18px;
+  letter-spacing: 0.06em;
+}
+
+.dot {
+  color: var(--color-accent);
+}
+
+.enName {
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: clamp(56px, 8.5vw, 110px);
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  margin: 0 0 26px;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-ink-faint);
+}
+
+.role {
+  font-size: 15px;
+  letter-spacing: 0.28em;
+  color: var(--color-ink-muted);
+}
+
+.motto {
+  position: absolute;
+  right: 34vw;
+  top: 12vh;
+  writing-mode: vertical-rl;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  letter-spacing: 0.5em;
+  color: var(--color-ink-faint);
+}
+
 @media (max-width: 768px) {
-  .name { white-space: normal; font-size: 17vw; }
-  .enName { white-space: normal; font-size: 9vw; }
-  .motto { display: none; }
+  .name {
+    white-space: normal;
+    font-size: 17vw;
+  }
+
+  .enName {
+    white-space: normal;
+    font-size: 9vw;
+  }
+
+  .motto {
+    display: none;
+  }
 }

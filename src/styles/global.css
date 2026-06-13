@@ -1,25 +1,88 @@
-@import './tokens.css';
+@import url('./tokens.css');
 
-* { box-sizing: border-box; }
-html, body, #root { margin: 0; height: 100%; }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  transition: background 0.4s ease, color 0.4s ease;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
 }
-a { color: inherit; }
-button { font-family: var(--font-sans); cursor: pointer; }
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
 
 /* 首頁 panel 與 reveal（跨元件機制，住 global） */
-.panel { flex: none; height: 100vh; position: relative; padding: 0 6vw; display: flex; flex-direction: column; justify-content: center; }
-.rv { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1); }
-.panel.active .rv { opacity: 1; transform: none; }
-.panel.active .rv:nth-child(2) { transition-delay: 0.12s; }
-.panel.active .rv:nth-child(3) { transition-delay: 0.24s; }
-.panel.active .rv:nth-child(4) { transition-delay: 0.36s; }
-@media (max-width: 768px) {
-  .panel { width: 100% !important; height: auto; min-height: 70vh; padding: 18vw 8vw; }
-  .rv { opacity: 1; transform: none; }
+.panel {
+  flex: none;
+  height: 100vh;
+  position: relative;
+  padding: 0 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-@media (prefers-reduced-motion: reduce) { .rv { transition: none; opacity: 1; transform: none; } }
+
+.rv {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.panel.active .rv {
+  opacity: 1;
+  transform: none;
+}
+
+.panel.active .rv:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.panel.active .rv:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+.panel.active .rv:nth-child(4) {
+  transition-delay: 0.36s;
+}
+
+@media (max-width: 768px) {
+  .panel {
+    width: 100% !important;
+    height: auto;
+    min-height: 70vh;
+    padding: 18vw 8vw;
+  }
+
+  .rv {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

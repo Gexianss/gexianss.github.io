@@ -1,16 +1,74 @@
-.viewport { height: 100vh; overflow: hidden; position: relative; }
-.track { display: flex; height: 100vh; will-change: transform; position: relative; z-index: 1; }
-.progress { position: fixed; bottom: 0; left: 0; height: 2px; width: 100%; z-index: 60; background: var(--color-line); }
-.bar { height: 100%; width: 0; background: var(--color-accent); }
+.viewport {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.track {
+  display: flex;
+  height: 100vh;
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+.progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  z-index: 60;
+  background: var(--color-line);
+}
+
+.bar {
+  height: 100%;
+  width: 0;
+  background: var(--color-accent);
+}
+
 .hint {
-  position: fixed; bottom: 26px; right: 28px; z-index: 50; font-size: 11px;
-  letter-spacing: 0.3em; color: var(--color-ink-faint);
+  position: fixed;
+  bottom: 26px;
+  right: 28px;
+  z-index: 50;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--color-ink-faint);
   animation: hint 2.4s ease-in-out infinite;
 }
-@keyframes hint { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
-@media (max-width: 768px) {
-  .viewport { height: auto; overflow: visible; }
-  .track { display: block; height: auto; transform: none !important; }
-  .hint { display: none; }
+
+@keyframes hint {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
 }
-@media (prefers-reduced-motion: reduce) { .hint { animation: none; } }
+
+@media (max-width: 768px) {
+  .viewport {
+    height: auto;
+    overflow: visible;
+  }
+
+  .track {
+    display: block;
+    height: auto;
+    transform: none !important;
+  }
+
+  .hint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hint {
+    animation: none;
+  }
+}

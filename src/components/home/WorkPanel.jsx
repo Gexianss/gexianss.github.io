@@ -21,10 +21,14 @@ export default function WorkPanel({ work, id }) {
           <h2 className={`rv ${styles.title}`}>{t(`works.${work.slug}.title`)}</h2>
           <p className={`rv ${styles.desc}`}>{t(`works.${work.slug}.desc`)}</p>
           <div className={`rv ${styles.meta}`}>
-            {work.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+            {work.tags.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
           </div>
         </div>
-        <div className={`rv ${styles.thumb}`}><div className={styles.ph}>{work.glyph}</div></div>
+        <div className={`rv ${styles.thumb}`}>
+          <div className={styles.ph}>{work.glyph}</div>
+        </div>
       </div>
     </section>
   );

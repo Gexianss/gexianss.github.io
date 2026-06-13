@@ -1,9 +1,23 @@
 .curtain {
-  position: fixed; inset: 0; z-index: 100; background: var(--color-accent);
-  display: flex; align-items: center; justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .stamp {
-  width: 72px; height: 72px; border-radius: 8px; background: var(--color-on-accent);
-  color: var(--color-accent); font-family: var(--font-serif); font-weight: 600;
-  font-size: 34px; display: flex; align-items: center; justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  background: var(--color-on-accent);
+  color: var(--color-accent);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

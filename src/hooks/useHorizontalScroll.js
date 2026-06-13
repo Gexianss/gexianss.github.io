@@ -10,7 +10,10 @@ export function useHorizontalScroll({ trackRef, barRef, glowRef }) {
   // 導航用：滑到指定元素
   const scrollToEl = (el) => {
     if (!el) return;
-    if (isMobile()) { el.scrollIntoView({ behavior: 'smooth' }); return; }
+    if (isMobile()) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
     targetRef.current = Math.max(0, el.offsetLeft - window.innerWidth * 0.04);
   };
 
@@ -28,8 +31,10 @@ export function useHorizontalScroll({ trackRef, barRef, glowRef }) {
     };
     const onKey = (e) => {
       if (isMobile()) return;
-      if (e.key === 'ArrowRight') targetRef.current = Math.min(max(), targetRef.current + window.innerWidth * 0.9);
-      if (e.key === 'ArrowLeft') targetRef.current = Math.max(0, targetRef.current - window.innerWidth * 0.9);
+      if (e.key === 'ArrowRight')
+        targetRef.current = Math.min(max(), targetRef.current + window.innerWidth * 0.9);
+      if (e.key === 'ArrowLeft')
+        targetRef.current = Math.max(0, targetRef.current - window.innerWidth * 0.9);
     };
 
     const tick = () => {
@@ -40,7 +45,10 @@ export function useHorizontalScroll({ trackRef, barRef, glowRef }) {
         if (barRef.current) barRef.current.style.width = `${max() ? (current / max()) * 100 : 0}%`;
         for (const p of track.children) {
           const mid = p.offsetLeft + p.offsetWidth / 2 - current;
-          p.classList.toggle('active', mid > -window.innerWidth * 0.2 && mid < window.innerWidth * 1.1);
+          p.classList.toggle(
+            'active',
+            mid > -window.innerWidth * 0.2 && mid < window.innerWidth * 1.1,
+          );
         }
       }
       raf = requestAnimationFrame(tick);

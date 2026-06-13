@@ -1,4 +1,8 @@
 .tag {
-  font-size: 10px; letter-spacing: 0.12em; color: var(--color-accent);
-  background: var(--color-accent-soft); border-radius: 3px; padding: 4px 10px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-radius: 3px;
+  padding: 4px 10px;
 }
