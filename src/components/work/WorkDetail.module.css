@@ -39,16 +39,26 @@
 }
 
 .thumb {
-  height: clamp(220px, 38vw, 460px);
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-line));
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ph {
+  height: clamp(220px, 38vw, 460px);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-line));
   font-family: var(--font-serif);
   font-size: 56px;
   color: var(--color-ink-faint);
-  margin-bottom: 48px;
 }
 
 .body {

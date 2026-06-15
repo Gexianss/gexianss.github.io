@@ -27,7 +27,16 @@ export default function WorkPanel({ work, id }) {
           </div>
         </div>
         <div className={`rv ${styles.thumb}`}>
-          <div className={styles.ph}>{work.glyph}</div>
+          {work.thumb ? (
+            <img
+              className={styles.img}
+              src={work.thumb}
+              alt={t(`works.${work.slug}.title`)}
+              loading="lazy"
+            />
+          ) : (
+            <div className={styles.ph}>{work.glyph}</div>
+          )}
         </div>
       </div>
     </section>

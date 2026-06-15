@@ -35,7 +35,11 @@ export default function WorkDetail() {
         ))}
       </div>
       <div className={styles.thumb}>
-        <span>{work.glyph}</span>
+        {work.thumb ? (
+          <img className={styles.img} src={work.thumb} alt={t(`works.${slug}.title`)} />
+        ) : (
+          <span className={styles.ph}>{work.glyph}</span>
+        )}
       </div>
       <div className={styles.body}>
         <p>{t(`works.${slug}.desc`)}</p>

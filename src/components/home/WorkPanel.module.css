@@ -40,11 +40,8 @@
 
 .thumb {
   width: min(52vw, 680px);
-  height: min(30vw, 380px);
   border-radius: 8px;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-line));
-  position: relative;
   transition: transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
   flex: none;
 }
@@ -53,12 +50,18 @@
   transform: scale(1.025);
 }
 
+.img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .ph {
-  position: absolute;
-  inset: 0;
+  height: min(30vw, 380px);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-line));
   font-family: var(--font-serif);
   font-size: 40px;
   color: var(--color-ink-faint);
@@ -73,6 +76,9 @@
 
   .thumb {
     width: 100%;
+  }
+
+  .ph {
     height: 52vw;
   }
 }
