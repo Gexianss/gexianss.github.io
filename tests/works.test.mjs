@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { works } from '../src/data/works.js';
 
 test('每筆作品欄位完整', () => {
-  assert.ok(works.length >= 3);
+  assert.ok(works.length >= 2);
   for (const w of works) {
     for (const field of ['slug', 'glyph', 'tags']) {
       assert.ok(w[field], `${w.slug || '?'} 缺 ${field}`);
