@@ -11,7 +11,7 @@ test('resume.json 是合法 JSON Resume 且含核心欄位', () => {
   assert.equal(r.basics.email, 'shiaushen@gmail.com');
   assert.ok(r.work.length >= 2);
   assert.ok(r.skills.length >= 5);
-  assert.ok(r.projects.length >= 3);
+  assert.ok(r.projects.length >= 2);
 });
 
 test('llms.txt 存在且含網站結構說明', () => {

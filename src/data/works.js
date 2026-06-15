@@ -14,10 +14,4 @@ export const works = [
     tags: ['Node.js', 'CLI', 'Claude Code'],
     github: 'https://github.com/Gexianss/project-handbook',
   },
-  // {
-  //   slug: 'iot-monitoring',
-  //   glyph: '監',
-  //   tags: ['WebSocket', 'D3.js', 'MQTT', 'JSMpeg'],
-  //   github: null,
-  // },
 ];
