@@ -49,6 +49,7 @@
   "resume": {
     "zh": "Resume",
     "en": "Resume",
+    "download": "Download PDF",
     "title": "Chang Wei-Shan",
     "subtitle": "Frontend Engineer / Full-Stack / AI Tooling",
     "summary": "2.5 years of frontend development experience spanning frontend (React / SCSS / Vite), backend (Node.js / Express) and cloud deployment (GCP Cloud Run / GitLab CI/CD). Experienced in WebSocket real-time systems and IoT monitoring, with hands-on DevOps and observability (Grafana, ELK). An early adopter of AI tooling with deep command of Claude Code, MCP servers, and Agent/Hook development.",

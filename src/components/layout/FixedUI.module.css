@@ -84,3 +84,12 @@
     gap: 12px;
   }
 }
+
+/* 直接列印頁面時隱藏固定導覽 UI */
+@media print {
+  .logo,
+  .nav,
+  .github {
+    display: none;
+  }
+}

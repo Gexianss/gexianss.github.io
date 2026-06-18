@@ -4,6 +4,14 @@
   padding: 16vh 6vw 12vh;
 }
 
+.titleRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
 .name {
   font-family: var(--font-serif);
   font-weight: 600;
@@ -16,11 +24,54 @@
   color: var(--color-accent);
 }
 
+.download {
+  flex: none;
+  margin-bottom: 14px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--color-ink);
+  text-decoration: none;
+  border: 1px solid var(--color-line);
+  border-radius: 99px;
+  padding: 9px 18px;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.download:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 .subtitle {
   font-size: 14px;
   letter-spacing: 0.2em;
   color: var(--color-ink-muted);
+  margin: 0 0 14px;
+}
+
+.contact {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
   margin: 0 0 24px;
+}
+
+.contact a {
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: 2px;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.contact a:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .summary {
@@ -95,5 +146,12 @@
   .job {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+}
+
+/* 直接列印頁面時隱藏下載按鈕（真正的 PDF 由預生成檔提供） */
+@media print {
+  .download {
+    display: none;
   }
 }

@@ -50,6 +50,7 @@ npm install
 npm run dev      # 開發伺服器（http://localhost:5173）
 npm test         # 單元測試
 npm run smoke    # Playwright E2E 測試
+npm run pdf      # 重新生成履歷 PDF（履歷內容改動後執行並 commit）
 npm run build    # 產出 dist/（含 resume.json、llms.txt、404.html）
 ```
 

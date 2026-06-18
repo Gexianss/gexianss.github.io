@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 
 test('首頁載入且橫向滑動有位移', async ({ page }) => {
   await page.goto('/');
@@ -35,4 +36,15 @@ test('履歷頁與作品頁可達', async ({ page }) => {
   await expect(page.locator('h1')).toContainText('張溦珊');
   await page.goto('/works/noodle-pos');
   await expect(page.locator('h1')).toContainText('Noodle POS');
+});
+
+test('履歷頁可一鍵下載 PDF', async ({ page }) => {
+  await page.goto('/resume');
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('link', { name: /下載 PDF|Download PDF/ }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toMatch(/\.pdf$/);
+  const path = await download.path();
+  const head = readFileSync(path).subarray(0, 4).toString('latin1');
+  expect(head).toBe('%PDF');
 });

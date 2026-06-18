@@ -49,6 +49,7 @@
   "resume": {
     "zh": "履歷",
     "en": "Resume",
+    "download": "下載 PDF",
     "title": "張溦珊",
     "subtitle": "前端工程師 ／ 全端開發 ／ AI 工具整合",
     "summary": "擁有 2.5 年前端開發經驗，技術橫跨前端（React / SCSS / Vite）、後端（Node.js / Express）及雲端部署（GCP Cloud Run / GitLab CI/CD）。熟悉 WebSocket 即時通訊系統開發與 IoT 監控應用，具備完整的 DevOps 與可觀測性（Grafana、ELK）實戰能力。積極擁抱 AI 工具，深度掌握 Claude Code、MCP Server、Agent/Hook 開發。",
