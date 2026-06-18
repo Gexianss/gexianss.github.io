@@ -50,9 +50,12 @@ npm install
 npm run dev      # 開發伺服器（http://localhost:5173）
 npm test         # 單元測試
 npm run smoke    # Playwright E2E 測試
-npm run pdf      # 重新生成履歷 PDF（履歷內容改動後執行並 commit）
-npm run build    # 產出 dist/（含 resume.json、llms.txt、404.html）
+npm run pdf      # 本機預覽用：手動重生履歷 PDF（部署時會自動重生，平常不需手動跑）
+npm run build    # 產出 dist/（build 時自動重生 resume.json、llms.txt、履歷 PDF、404.html）
 ```
+
+> 履歷 PDF（`resume-zh.pdf` / `resume-en.pdf`）由 `prebuild` 從 i18n 字典自動生成，
+> 跟著每次 `npm run build` / CI 部署重生，內容永遠與網站同步——改履歷不需手動處理 PDF。
 
 ## 📮 聯絡我
 

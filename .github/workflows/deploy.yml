@@ -24,6 +24,8 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
+      # build 的 prebuild 會用 Playwright 生成履歷 PDF，需要 Chromium
+      - run: npx playwright install --with-deps chromium
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }

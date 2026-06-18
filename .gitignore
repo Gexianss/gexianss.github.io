@@ -4,5 +4,7 @@ dist/
 *.local
 public/resume.json
 public/llms.txt
+public/resume-zh.pdf
+public/resume-en.pdf
 test-results/
 playwright-report/
