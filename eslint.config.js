@@ -23,5 +23,12 @@ export default [
       globals: { ...globals.browser, ...globals.node },
     },
   },
+  {
+    // scripts 同時用到 Node（console、fs）與瀏覽器（page.evaluate 裡的 document）
+    files: ['scripts/**/*.{js,mjs}'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+    },
+  },
   prettier, // 必須放最後：關掉與 Prettier 衝突的格式規則
 ];
