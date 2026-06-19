@@ -1,0 +1,39 @@
+.blur {
+  position: fixed;
+  z-index: 40;
+  pointer-events: none;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.left,
+.right {
+  top: 0;
+  bottom: 0;
+}
+
+.left {
+  left: 0;
+  mask-image: linear-gradient(to right, #000, transparent);
+  -webkit-mask-image: linear-gradient(to right, #000, transparent);
+}
+
+.right {
+  right: 0;
+  mask-image: linear-gradient(to left, #000, transparent);
+  -webkit-mask-image: linear-gradient(to left, #000, transparent);
+}
+
+.bottom {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  mask-image: linear-gradient(to top, #000, transparent);
+  -webkit-mask-image: linear-gradient(to top, #000, transparent);
+}
+
+@media (max-width: 768px) {
+  .blur {
+    display: none;
+  }
+}

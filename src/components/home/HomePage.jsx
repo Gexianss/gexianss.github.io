@@ -4,6 +4,7 @@ import { useHorizontalScroll } from '../../hooks/useHorizontalScroll.js';
 import FixedUI from '../layout/FixedUI.jsx';
 import PageReveal from '../layout/PageReveal.jsx';
 import GlowLayer from './GlowLayer.jsx';
+import GradualBlur from '../common/GradualBlur.jsx';
 import HeroPanel from './HeroPanel.jsx';
 import AboutPanel from './AboutPanel.jsx';
 import WorkPanel from './WorkPanel.jsx';
@@ -41,6 +42,8 @@ export default function HomePage() {
       <div className={styles.hint} aria-hidden="true">
         SCROLL →
       </div>
+      <GradualBlur side="left" />
+      <GradualBlur side="right" />
     </div>
   );
 }

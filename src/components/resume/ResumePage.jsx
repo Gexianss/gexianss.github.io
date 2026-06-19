@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import FixedUI from '../layout/FixedUI.jsx';
 import SectionHead from '../common/SectionHead.jsx';
+import Reveal from '../common/Reveal.jsx';
 import styles from './ResumePage.module.css';
 
 const PDF_FILENAME = { zh: '張溦珊-履歷.pdf', en: 'Chang-Wei-Shan-Resume.pdf' };
@@ -14,13 +15,13 @@ export default function ResumePage() {
   return (
     <motion.main
       className={styles.page}
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -40 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
     >
       <FixedUI />
-      <header className={styles.header}>
+      <Reveal as="header" className={styles.header}>
         <div className={styles.titleRow}>
           <h1 className={styles.name}>
             {t('resume.title')}
@@ -42,12 +43,12 @@ export default function ResumePage() {
           </a>
         </div>
         <p className={styles.summary}>{t('resume.summary')}</p>
-      </header>
+      </Reveal>
 
       <SectionHead zh={t('resume.zh')} en="Experience" />
       <div className={styles.timeline}>
-        {jobs.map((job) => (
-          <article key={job.company} className={styles.job}>
+        {jobs.map((job, i) => (
+          <Reveal as="article" key={job.company} className={styles.job} delay={i * 0.06}>
             <div className={styles.period}>{job.period}</div>
             <div>
               <h2 className={styles.jobTitle}>{job.title}</h2>
@@ -58,21 +59,23 @@ export default function ResumePage() {
                 ))}
               </ul>
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
 
       <SectionHead zh="技能" en="Skills" />
-      <table className={styles.skills}>
-        <tbody>
-          {skillGroups.map((g) => (
-            <tr key={g.name}>
-              <th>{g.name}</th>
-              <td>{g.items}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Reveal>
+        <table className={styles.skills}>
+          <tbody>
+            {skillGroups.map((g) => (
+              <tr key={g.name}>
+                <th>{g.name}</th>
+                <td>{g.items}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Reveal>
     </motion.main>
   );
 }

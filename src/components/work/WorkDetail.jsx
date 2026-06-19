@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import FixedUI from '../layout/FixedUI.jsx';
 import Tag from '../common/Tag.jsx';
+import Reveal from '../common/Reveal.jsx';
 import { works } from '../../data/works.js';
 import styles from './WorkDetail.module.css';
 
@@ -18,33 +19,35 @@ export default function WorkDetail() {
   return (
     <motion.main
       className={styles.page}
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -40 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
     >
       <FixedUI />
       <Link to="/" className={styles.back}>
         {t('works.back')}
       </Link>
-      <div className={styles.label}>{t(`works.${slug}.label`)}</div>
-      <h1 className={styles.title}>{t(`works.${slug}.title`)}</h1>
-      <div className={styles.meta}>
+      <Reveal className={styles.label}>{t(`works.${slug}.label`)}</Reveal>
+      <Reveal as="h1" className={styles.title} delay={0.05}>
+        {t(`works.${slug}.title`)}
+      </Reveal>
+      <Reveal className={styles.meta} delay={0.1}>
         {work.tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>
         ))}
-      </div>
-      <div className={styles.thumb}>
+      </Reveal>
+      <Reveal className={styles.thumb} delay={0.15}>
         {work.thumb ? (
           <img className={styles.img} src={work.thumb} alt={t(`works.${slug}.title`)} />
         ) : (
           <span className={styles.ph}>{work.glyph}</span>
         )}
-      </div>
-      <div className={styles.body}>
+      </Reveal>
+      <Reveal as="div" className={styles.body}>
         <p>{t(`works.${slug}.desc`)}</p>
         <p>{t(`works.${slug}.detail`)}</p>
-      </div>
+      </Reveal>
       {work.github && (
         <a className={styles.gh} href={work.github} target="_blank" rel="noreferrer">
           GitHub ↗
