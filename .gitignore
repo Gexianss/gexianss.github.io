@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .superpowers/
+.vscode/
 *.local
 public/resume.json
 public/llms.txt
