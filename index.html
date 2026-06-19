@@ -3,6 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 首次繪製前先套用主題，避免 loading 簾幕閃一下另一個主題的藍。
+         須與 useTheme.jsx 同邏輯：localStorage 沒值時首頁預設 dark、內頁 light -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme') || (location.pathname === '/' ? 'dark' : 'light');
+          document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
     <meta name="description" content="張溦珊 — 前端工程師。React、Node.js、WebSocket 即時系統、GCP 部署與 AI 驅動開發。" />
     <meta property="og:title" content="張溦珊｜前端工程師" />
     <meta property="og:description" content="履歷與作品集：Noodle POS、project-handbook、IoT 監控系統。" />
