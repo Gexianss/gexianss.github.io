@@ -14,15 +14,19 @@
 
 ## ✨ 特色
 
-- **橫向 slider 首頁** — 滾輪／方向鍵驅動，背景光暈隨捲動視差移動，開場有掀頁動畫
+- **橫向 slider 首頁** — 滾輪／方向鍵驅動，背景光暈隨捲動視差移動；開場掀頁動畫等字型與縮圖就緒才掀，避免閃爍
+- **講究的動態** — 逐字浮現的標題、滾動進場、邊緣漸層柔化（Gradual Blur），以及跟著游標的靛藍流體效果（Splash Cursor）
+- **圓形品牌識別** — 自製 `</>` 雙圈圓形 logo，貫穿左上標記、PWA icon 與開場簾幕；載入時中央 `</>` 緩緩旋轉
+- **作品頁側邊翻頁** — 左右邊緣的 PREV／NEXT 標籤固定不動，hover 時整頁高度的色塊自邊緣拉出（寬度隨視窗縮放）
 - **中英雙語** — react-i18next，文案全部集中在字典檔，一鍵切換
-- **深淺色主題** — 首頁預設深色、內頁預設淺色，手動切換後全站記住
+- **深淺色主題** — 首頁預設深色、內頁預設淺色，手動切換後全站記住；首次繪製前就套用，不閃色
 - **PWA** — 可加入主畫面、離線可用
-- **AI 可讀履歷** — [`llms.txt`](https://gexianss.github.io/llms.txt)（給 AI 的網站導覽）＋ [`resume.json`](https://gexianss.github.io/resume.json)（JSON Resume 標準格式），由 i18n 字典同源產生
+- **AI 可讀 + SEO** — [`llms.txt`](https://gexianss.github.io/llms.txt)（給 AI 的網站導覽）＋ [`resume.json`](https://gexianss.github.io/resume.json)（JSON Resume 標準格式）由 i18n 字典同源產生，再搭配 JSON-LD（Person）、sitemap、robots、語言 alternate，對搜尋引擎與 AI 工具都友善
+- **履歷一鍵下載 PDF** — 可選取文字的 A4 履歷，由 i18n 字典自動生成，內容永遠與網站同步
 
 ## 🛠 技術
 
-React 19 · Vite 7 · react-i18next · Framer Motion · vite-plugin-pwa · CSS Modules + design tokens（純 JavaScript）
+React 19 · Vite 7 · react-i18next · Framer Motion · vite-plugin-pwa · CSS Modules + design tokens · Playwright（E2E／履歷 PDF／icon 生成）· ESLint + Stylelint + Prettier（純 JavaScript）
 
 部署在 GitHub Pages，透過 GitHub Actions 自動 lint → test → build → deploy。
 
@@ -31,12 +35,13 @@ React 19 · Vite 7 · react-i18next · Framer Motion · vite-plugin-pwa · CSS M
 ```
 src/components/      依職責分區的 React 元件
   home/              首頁橫向 slider（HomePage、各 Panel、GlowLayer）
-  work/              作品詳情頁
-  resume/            履歷頁
+  work/              作品詳情頁（側邊翻頁）
+  resume/            履歷頁（一鍵下載 PDF）
   layout/            固定 UI、掀頁開場
-  common/            共用小元件
+  common/            共用元件（品牌符號 BrandMark、動態效果、Tag…）
 src/hooks/           自訂 hooks（橫向捲動、主題、reduced-motion）
 src/i18n/            zh / en 雙語字典
+scripts/             建置腳本（生成 resume.json／llms.txt、履歷 PDF、icon、404）
 
 design-system/       設計系統原稿（色票、字型、元件）
 prototypes/          設計階段的可動原型
@@ -49,6 +54,8 @@ docs/superpowers/    設計規格（specs）與實作計畫（plans）
 npm install
 npm run dev      # 開發伺服器（http://localhost:5173）
 npm test         # 單元測試
+npm run lint     # ESLint（src + e2e）
+npm run lint:css # Stylelint
 npm run smoke    # Playwright E2E 測試
 npm run pdf      # 本機預覽用：手動重生履歷 PDF（部署時會自動重生，平常不需手動跑）
 npm run build    # 產出 dist/（build 時自動重生 resume.json、llms.txt、履歷 PDF、404.html）
