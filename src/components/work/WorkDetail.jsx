@@ -53,11 +53,27 @@ export default function WorkDetail() {
           GitHub ↗
         </a>
       )}
-      <Link to={`/works/${prev.slug}`} className={`${styles.pager} ${styles.prev}`}>
-        {t('works.prev')}
+      <Link
+        to={`/works/${prev.slug}`}
+        className={`${styles.pager} ${styles.prev}`}
+        aria-label={t('works.prev')}
+      >
+        <span className={styles.pagerPanel} aria-hidden="true" />
+        <span className={styles.lab}>
+          <span className={styles.pagerTxt}>{t('works.prev')}</span>
+          <span className={styles.pagerLine} aria-hidden="true" />
+        </span>
       </Link>
-      <Link to={`/works/${next.slug}`} className={`${styles.pager} ${styles.next}`}>
-        {t('works.next')}
+      <Link
+        to={`/works/${next.slug}`}
+        className={`${styles.pager} ${styles.next}`}
+        aria-label={t('works.next')}
+      >
+        <span className={styles.pagerPanel} aria-hidden="true" />
+        <span className={styles.lab}>
+          <span className={styles.pagerTxt}>{t('works.next')}</span>
+          <span className={styles.pagerLine} aria-hidden="true" />
+        </span>
       </Link>
     </motion.main>
   );

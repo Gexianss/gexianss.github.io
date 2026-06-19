@@ -85,28 +85,95 @@
   padding-bottom: 3px;
 }
 
+/* 側邊翻頁：全高觸發區，hover 時藍色色塊從邊緣拉出，標籤固定不動 */
 .pager {
   position: fixed;
-  top: 50%;
+  top: 0;
+  bottom: 0;
+  width: 74px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.prev {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.next {
+  right: 0;
+  justify-content: flex-end;
+}
+
+/* 全高藍色色塊：自邊緣 width 0 → 120px 拉出（無文字） */
+.pagerPanel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--color-accent);
+  opacity: 0;
+  z-index: 0;
+  transition:
+    width 1s cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 1s;
+}
+
+.prev .pagerPanel {
+  left: 0;
+}
+
+.next .pagerPanel {
+  right: 0;
+}
+
+/* 固定標籤（位置/大小不變，只變色）：直書文字 + 細線 */
+.lab {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 22px;
+}
+
+.prev .lab {
+  flex-direction: row-reverse;
+}
+
+.pagerTxt {
   writing-mode: vertical-rl;
   font-size: 12px;
   letter-spacing: 0.4em;
   color: var(--color-ink-faint);
-  text-decoration: none;
-  transform: translateY(-50%);
-  z-index: 40;
+  transition: color 0.3s;
 }
 
-.pager:hover {
-  color: var(--color-accent);
+.prev .pagerTxt {
+  transform: rotate(180deg);
 }
 
-.prev {
-  left: 18px;
+.pagerLine {
+  width: 28px;
+  height: 1px;
+  background: var(--color-ink-faint);
+  transition: background 0.3s;
 }
 
-.next {
-  right: 18px;
+.pager:hover .pagerPanel {
+  /* 彈出寬度隨視窗縮放：下限 80px、上限 130px */
+  width: clamp(80px, 11vw, 130px);
+  opacity: 1;
+}
+
+.pager:hover .pagerTxt {
+  color: var(--color-on-accent);
+}
+
+.pager:hover .pagerLine {
+  background: var(--color-on-accent);
 }
 
 @media (max-width: 768px) {
