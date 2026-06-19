@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../hooks/useTheme.jsx';
 import { toggleLang } from '../../i18n/index.js';
+import { CodeBadge } from '../common/BrandMark.jsx';
 import styles from './FixedUI.module.css';
 
 export default function FixedUI({ onNavigateSection }) {
@@ -28,7 +29,7 @@ export default function FixedUI({ onNavigateSection }) {
   return (
     <>
       <Link to="/" className={styles.logo} aria-label="Home">
-        張
+        <CodeBadge className={styles.logoGlyph} outerRing={false} />
       </Link>
       <nav className={styles.nav}>
         <Link to="/resume">{t('nav.resume')}</Link>

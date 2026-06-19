@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { prefersReducedMotion } from '../../hooks/useReducedMotion.js';
 import { works } from '../../data/works.js';
+import { CodeBadge } from '../common/BrandMark.jsx';
 import styles from './PageReveal.module.css';
 
 const MIN_DISPLAY = 400; // 最少顯示，避免快取命中時閃一下
@@ -56,14 +57,12 @@ export default function PageReveal() {
       >
         <div className={styles.inner}>
           <motion.div
-            className={styles.stamp}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.45 }}
           >
-            張
+            <CodeBadge className={styles.badge} codeClassName={styles.codeSpin} />
           </motion.div>
-          <div className={styles.loader} aria-hidden="true" />
         </div>
       </motion.div>
     </AnimatePresence>
