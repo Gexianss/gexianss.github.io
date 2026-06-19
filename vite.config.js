@@ -1,6 +1,42 @@
+import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+
+const SITE = 'https://gexianss.github.io';
+
+// 從 i18n 字典生成 schema.org/Person 結構化資料，build/dev 時 inline 進 <head>。
+// 與履歷同源，姓名/職稱/技能改了會自動同步。
+function personJsonLd() {
+  return {
+    name: 'inject-person-jsonld',
+    transformIndexHtml() {
+      const zh = JSON.parse(readFileSync('src/i18n/zh.json', 'utf8'));
+      const en = JSON.parse(readFileSync('src/i18n/en.json', 'utf8'));
+      const skills = [...new Set(zh.resume.skillGroups.flatMap((g) => g.items.split(' · ')))];
+      const person = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: zh.resume.title,
+        alternateName: en.resume.title,
+        jobTitle: zh.resume.subtitle.split(/[／/]/)[0].trim(),
+        description: zh.resume.summary,
+        email: zh.contact.email,
+        url: SITE,
+        sameAs: ['https://github.com/Gexianss'],
+        knowsAbout: skills,
+      };
+      return [
+        {
+          tag: 'script',
+          attrs: { type: 'application/ld+json' },
+          children: JSON.stringify(person),
+          injectTo: 'head',
+        },
+      ];
+    },
+  };
+}
 
 export default defineConfig({
   server: {
@@ -9,6 +45,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    personJsonLd(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['llms.txt', 'resume.json'],

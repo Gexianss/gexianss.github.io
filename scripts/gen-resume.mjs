@@ -62,7 +62,26 @@ ${zh.resume.summary}
 - GitHub: https://github.com/Gexianss
 `;
 
+// robots.txt + sitemap.xml（與 works 同源，永不漂移）
+const routes = ['/', '/resume', ...works.map((w) => `/works/${w.slug}`)];
+const robots = `User-agent: *
+Allow: /
+
+# 機器可讀履歷與 AI 導覽
+# ${SITE}/resume.json
+# ${SITE}/llms.txt
+
+Sitemap: ${SITE}/sitemap.xml
+`;
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${routes.map((r) => `  <url><loc>${SITE}${r}</loc></url>`).join('\n')}
+</urlset>
+`;
+
 mkdirSync('public', { recursive: true });
 writeFileSync('public/resume.json', JSON.stringify(resume, null, 2));
 writeFileSync('public/llms.txt', llms);
-console.log('public/resume.json + public/llms.txt generated');
+writeFileSync('public/robots.txt', robots);
+writeFileSync('public/sitemap.xml', sitemap);
+console.log('public/resume.json + llms.txt + robots.txt + sitemap.xml generated');

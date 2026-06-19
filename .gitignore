@@ -6,5 +6,7 @@ public/resume.json
 public/llms.txt
 public/resume-zh.pdf
 public/resume-en.pdf
+public/robots.txt
+public/sitemap.xml
 test-results/
 playwright-report/
