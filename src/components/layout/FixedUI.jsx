@@ -39,7 +39,8 @@ export default function FixedUI({ onNavigateSection }) {
           {t('nav.lang')}
         </button>
         <button className={styles.pill} onClick={toggle}>
-          {theme === 'dark' ? t('nav.themeDark') : t('nav.themeLight')}
+          {/* 與語系切換同邏輯：顯示「切換後」的目標主題 */}
+          {theme === 'dark' ? t('nav.themeLight') : t('nav.themeDark')}
         </button>
       </nav>
       <a
