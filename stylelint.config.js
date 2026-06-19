@@ -16,5 +16,9 @@ export default {
 
     // Prettier 已負責排版，這條交給它
     'declaration-block-single-line-max-declarations': null,
+
+    // 本專案不跑 autoprefixer，手寫 -webkit- 前綴是必要的
+    // （Safari 仍只認 -webkit-backdrop-filter / -webkit-mask-image）
+    'property-no-vendor-prefix': null,
   },
 };
