@@ -19,6 +19,12 @@
   letter-spacing: 0.06em;
 }
 
+/* 英文姓名字元數遠多於中文（張溦珊 3 字 vs Chang Wei-Shan 14 字元），
+   同一字級會爆出視窗，故依 <html lang> 單獨縮小一階 */
+:lang(en) .name {
+  font-size: clamp(48px, 8vw, 104px);
+}
+
 .dot {
   color: var(--color-accent);
 }
