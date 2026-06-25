@@ -151,7 +151,8 @@
   transition: color 0.3s;
 }
 
-.prev .pagerTxt {
+/* 旋轉只用於拉丁字（讓英文由下往上讀）；中文直書旋轉 180° 會整個顛倒，故排除 */
+.prev .pagerTxt:lang(en) {
   transform: rotate(180deg);
 }
 
